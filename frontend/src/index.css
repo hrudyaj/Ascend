@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-background: 10 10 20;
+    --color-primary: 59 130 246; /* Blue 500 */
+    --color-accent: 14 165 233; /* Sky 500 */
+    --color-surface: 17 24 39; /* Gray 900 */
+  }
+
+  body {
+    @apply bg-background text-white font-sans overflow-x-hidden;
+    background-color: rgb(var(--bg-background));
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+/* Rank Themes (OUTSIDE OF @layer so they are NOT purged by Tailwind) */
+.theme-initiate {
+  --bg-background: 15 17 25;
+  --color-primary: 255 255 255; /* White #FFFFFF */
+  --color-accent: 209 213 219;
+}
+
+.theme-seeker {
+  --bg-background: 10 15 30;
+  --color-primary: 59 130 246; /* Blue #3B82F6 */
+  --color-accent: 96 165 250;
+}
+
+.theme-vanguard {
+  --bg-background: 5 25 15;
+  --color-primary: 16 185 129; /* Emerald #10B981 */
+  --color-accent: 52 211 153; 
+}
+
+.theme-ascendant {
+  --bg-background: 20 10 30;
+  --color-primary: 139 92 246; /* Violet #8B5CF6 */
+  --color-accent: 167 139 250; 
+}
+
+.theme-paragon {
+  --bg-background: 30 20 5;
+  --color-primary: 245 158 11; /* Amber #F59E0B */
+  --color-accent: 251 191 36;
+}
+
+.theme-mythic {
+  --bg-background: 25 5 20;
+  --color-primary: 236 72 153; /* Pink #EC4899 */
+  --color-accent: 244 114 182; 
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-black/60 backdrop-blur-2xl border border-primary/20 rounded-2xl shadow-[0_0_15px_rgba(var(--color-primary),0.08),inset_0_0_10px_rgba(var(--color-primary),0.03)];
+  }
+}
+
+@keyframes space-drift {
+  0% { background-position: 0px 0px; }
+  100% { background-position: 1000px 1000px; }
+}
+
+.animate-space-drift {
+  animation: space-drift 500s linear infinite;
+}
